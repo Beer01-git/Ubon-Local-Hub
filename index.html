@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ubon Local Hub | ศูนย์รวมของดีและสินค้า OTOP เมืองอุบลฯ</title>
+  <meta name="description"
+    content="ค้นหาและสั่งซื้อสินค้า OTOP ของดีเมืองอุบลราชธานี ผ้าทอกาบบัว อาหารพื้นถิ่น ของฝากเลื่องชื่อ เชื่อมโยงตรงถึงผู้ผลิตในชุมชน" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            warm: '#F8F6F0',
+            sage: {
+              DEFAULT: '#E7F1EA',
+              light: '#F2F7F4',
+              muted: '#DCECE3'
+            },
+            emerald: {
+              DEFAULT: '#008F6A',
+              deep: '#087A5B',
+              dark: '#065B43',
+              50: '#F0FDF8',
+              100: '#E7F1EA',
+              600: '#008F6A',
+              700: '#087A5B',
+              800: '#065B43'
+            },
+            amber: {
+              DEFAULT: '#E9A12A',
+              deep: '#C97912',
+              500: '#E9A12A',
+              600: '#C97912'
+            },
+            primaryText: '#172B26',
+            secondaryText: '#68756F',
+            subtleBorder: '#D9E2DD'
+          },
+          fontFamily: {
+            sans: ['Prompt', 'Inter', 'sans-serif'],
+            numeric: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="min-h-screen bg-canvas text-primaryText antialiased">
+  <!-- Navigation Header: 30% White Surface on Warm Canvas -->
+  <header class="sticky top-0 z-40 border-b border-subtle bg-white/95 backdrop-blur-sm">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#087A5B] text-lg font-bold text-white shadow-sm transition-transform group-hover:scale-105">
+          U
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-bold text-primaryText">Ubon Local Hub</span>
+            <span class="rounded-full bg-sage px-2 py-0.5 text-xs font-semibold text-emerald-deep">OTOP</span>
+          </div>
+          <p class="text-xs text-secondaryText">ศูนย์รวมของดีและสินค้าชุมชนเมืองอุบลฯ</p>
+        </div>
+      </a>
+      <div class="flex items-center gap-2.5">
+        <button id="reset-data-btn" title="รีเซ็ตเป็นข้อมูลตัวอย่างเริ่มต้น"
+          class="hidden rounded-full border border-subtle bg-white px-3 py-1.5 text-xs font-medium text-secondaryText transition hover:bg-sage-light hover:text-primaryText sm:inline-flex">
+          ↺ รีเซ็ตข้อมูลตัวอย่าง
+        </button>
+        <a href="dashboard.html"
+          class="inline-flex items-center gap-2 rounded-full border border-subtle bg-sage px-4 py-2 text-sm font-semibold text-emerald-deep transition hover:bg-sage-muted">
+          <span> จัดการร้านค้า</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section: 60% Warm Space Canvas -->
+    <section class="relative overflow-hidden border-b border-subtle bg-canvas py-10 sm:py-14 lg:py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div>
+            <div
+              class="mb-3.5 inline-flex items-center gap-2 rounded-full border border-subtle bg-sage px-3.5 py-1 text-xs font-semibold text-emerald-deep">
+              <span></span>
+              <span>หัตถศิลป์และของดีเมืองอุบลราชธานี</span>
+            </div>
+            <h1 class="text-3xl font-bold tracking-tight text-primaryText sm:text-4xl lg:text-5xl leading-tight">
+              สัมผัสคุณค่ามรดกท้องถิ่น<br />
+              <span class="text-emerald-deep">ส่งตรงจากชุมชนสู่คุณ</span>
+            </h1>
+            <p class="mt-4 max-w-xl text-base leading-relaxed text-secondaryText sm:text-lg">
+              ค้นหาผ้าทอกาบบัวอันวิจิตร อาหารพื้นถิ่นเลื่องชื่อ และของฝากคุณภาพจาก 5 อำเภอเอกลักษณ์
+              เชื่อมต่อผู้ซื้อกับช่างฝีมือชุมชนโดยตรง
+            </p>
+            <div class="mt-7 flex flex-wrap items-center gap-3">
+              <a href="#catalog"
+                class="btn-primary inline-flex items-center justify-center px-6 py-3 text-sm shadow-sm">
+                สำรวจสินค้าทั้งหมด
+              </a>
+              <a href="dashboard.html"
+                class="btn-secondary inline-flex items-center justify-center px-5 py-3 text-sm shadow-sm">
+                สำหรับร้านค้าชุมชน
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Spotlight Card: Clean White Surface (Matching Navbar & Cards) -->
+          <div class="hero-spotlight-card group overflow-hidden border border-subtle bg-white p-6 shadow-sm">
+            <!-- Image Anchor with 4:3 Ratio -->
+            <div class="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-subtle bg-sage-light">
+              <img src="JPG/ผ้าทอมือย้อมครามลายกาบบัว.jpg"
+                alt="ผ้าทอกาบบัวอุบลราชธานี — มรดกภูมิปัญญาท้องถิ่น"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute bottom-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                โขงเจียม · อุบลราชธานี
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="mt-5">
+              <span class="text-[11px] font-bold uppercase tracking-widest text-emerald-deep">
+                FEATURED HERITAGE
+              </span>
+              <h2 class="mt-1.5 text-xl font-bold text-primaryText leading-snug">
+                ดินแดนแห่งผ้าทอ &amp; รสชาติแม่น้ำมูล
+              </h2>
+              <p class="mt-2 text-sm leading-relaxed text-secondaryText">
+                ตั้งแต่ลายผ้าโบราณ อ.โขงเจียม หมูยอเมืองอุบลฯ ไปจนถึงซาลาเปาพิบูล และเครื่องจักสานสว่างวีระวงศ์
+                ทุกชิ้นสะท้อนอัตลักษณ์และภูมิปัญญาที่สืบทอดมารุ่นสู่รุ่น
+              </p>
+              <div class="mt-5 flex items-center gap-3 border-t border-subtle pt-4">
+                <span class="rounded-full bg-surface-sage px-2.5 py-0.5 text-xs font-semibold text-emerald-deep font-numeric" id="hero-total-count">0 รายการ</span>
+                <span class="text-secondaryText/40">·</span>
+                <span class="rounded-full bg-surface-sage px-2.5 py-0.5 text-xs font-semibold text-emerald-deep font-numeric" id="hero-district-count">5 อำเภอ</span>
+                <a href="#catalog"
+                  class="ml-auto inline-flex items-center gap-1 text-xs font-bold text-emerald-deep transition hover:text-emerald-dark">
+                  ดูสินค้าทั้งหมด →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Catalog Section: 30% Surface Structure -->
+    <section id="catalog" class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <!-- Search & Discovery Panel: Soft Sage #E7F1EA Surface with #D9E2DD Border -->
+      <div class="rounded-2xl border border-subtle bg-surface-sage p-5 shadow-sm sm:p-6">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-primaryText">ค้นหาสินค้า OTOP</h2>
+            <p class="text-xs text-secondaryText mt-0.5">ค้นหาตามชื่อสินค้า ชื่อร้าน หมวดหมู่ หรือเลือกตามอำเภอ</p>
+          </div>
+
+          <!-- Search Input: Solid White Surface with #D9E2DD Border -->
+          <div class="relative w-full lg:max-w-md">
+            <input id="search-input" type="text" placeholder="พิมพ์ค้นหาชื่อสินค้า หรือชื่อร้าน..."
+              class="input-custom w-full py-2.5 pl-10 pr-10 text-sm placeholder-secondaryText" />
+            <span class="pointer-events-none absolute left-3.5 top-3 text-sm text-secondaryText"></span>
+            <button id="clear-search-btn"
+              class="hidden absolute right-3 top-2.5 rounded-full p-1 text-xs text-secondaryText hover:bg-sage-muted hover:text-primaryText"
+              title="ล้างคำค้นหา">
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <!-- Category Filter Row (6 Categories) -->
+        <div class="mt-5 border-t border-subtle pt-4">
+          <p class="mb-2.5 text-xs font-semibold uppercase tracking-wider text-secondaryText">เลือกตามหมวดหมู่</p>
+          <div id="category-filters" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- District Filter Row -->
+        <div class="mt-4 border-t border-subtle pt-4">
+          <div class="flex items-center justify-between mb-2.5">
+            <p class="text-xs font-semibold uppercase tracking-wider text-secondaryText">เลือกตามพื้นที่อำเภอ</p>
+            <button id="reset-filters-btn"
+              class="text-xs font-semibold text-emerald-deep hover:underline">ล้างตัวกรองทั้งหมด</button>
+          </div>
+          <div id="district-filters" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
+
+      <!-- Filter Summary & Results Header -->
+      <div class="mt-8 flex items-center justify-between">
+        <p id="results-count" class="text-sm font-semibold text-primaryText"></p>
+        <div id="active-filter-tags" class="flex flex-wrap gap-1.5 text-xs"></div>
+      </div>
+
+      <!-- Product Grid: 30% White Surfaces on Warm Canvas -->
+      <div id="product-grid" class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+  </main>
+
+  <!-- Footer: 30% White Surface with #D9E2DD Border -->
+  <footer class="mt-16 border-t border-subtle bg-white py-10 text-center text-sm text-secondaryText">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <p class="font-bold text-primaryText">Ubon Local Hub — ศูนย์รวมของดีและสินค้า OTOP เมืองอุบลฯ</p>
+      <p class="mt-1 text-xs text-secondaryText">ส่งเสริมเศรษฐกิจชุมชนและภูมิปัญญาท้องถิ่นจังหวัดอุบลราชธานี</p>
+    </div>
+  </footer>
+
+  <!-- Product Detail Modal: 30% White Surface with 20px Radius -->
+  <div id="product-detail-modal"
+    class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/60 p-4 backdrop-blur-sm animate-modal-backdrop"
+    role="dialog" aria-modal="true">
+    <div class="mx-auto flex min-h-full max-w-2xl items-center justify-center py-6">
+      <div class="w-full overflow-hidden rounded-[20px] border border-subtle bg-white shadow-xl animate-modal-content">
+        <!-- Modal Header Image: 4:3 Ratio Visual Anchor -->
+        <div class="relative aspect-[16/9] sm:aspect-[4/3] w-full bg-sage-light overflow-hidden">
+          <img id="modal-image"
+            src=""
+            alt="ภาพสินค้า OTOP" class="h-full w-full object-cover" />
+          <button id="close-detail-modal"
+            class="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition hover:bg-black"
+            aria-label="ปิดหน้าต่าง">
+            ✕
+          </button>
+          <div id="modal-otop-badge"
+            class="badge-otop absolute bottom-4 left-4 rounded-full px-3 py-1 text-xs font-bold shadow-sm">
+          </div>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-6 sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span id="modal-category"
+                class="badge-category rounded-full px-3 py-1 text-xs font-semibold"></span>
+              <span id="modal-district"
+                class="rounded-full border border-subtle bg-white px-3 py-1 text-xs font-semibold text-primaryText"></span>
+            </div>
+            <div>
+              <span class="text-[11px] text-secondaryText block text-right">ราคา</span>
+              <p class="text-2xl font-bold font-numeric text-price" id="modal-price"></p>
+            </div>
+          </div>
+
+          <h3 id="modal-title" class="mt-4 text-2xl font-bold text-primaryText"></h3>
+
+          <div class="mt-2 flex items-center gap-2 text-sm text-secondaryText">
+            <span></span>
+            <span id="modal-merchant" class="font-semibold text-primaryText"></span>
+          </div>
+
+          <!-- Description Box: Soft Sage Surface -->
+          <div class="mt-4 rounded-xl border border-subtle bg-surface-sage p-4">
+            <p class="text-xs font-semibold uppercase tracking-wider text-emerald-deep">เรื่องราว &amp; รายละเอียดสินค้า</p>
+            <p id="modal-description" class="mt-2 text-sm leading-relaxed text-primaryText"></p>
+          </div>
+
+          <div class="mt-4 text-xs text-secondaryText flex items-start gap-2">
+            <span></span>
+            <span id="modal-address"></span>
+          </div>
+
+          <!-- Contact Actions: 10% CTA Emphasis -->
+          <div class="mt-6 border-t border-subtle pt-5">
+            <p class="text-xs font-semibold text-secondaryText mb-3">ติดต่อสอบถาม / สั่งซื้อโดยตรงกับร้านค้า:</p>
+            <div class="grid gap-3 sm:grid-cols-3">
+              <a id="modal-phone-btn" href=""
+                class="btn-primary flex items-center justify-center gap-2 px-4 py-3 text-sm shadow-sm">
+                <span> โทรสั่งซื้อ</span>
+              </a>
+              <a id="modal-line-btn" href="" target="_blank" rel="noopener"
+                class="flex items-center justify-center gap-2 rounded-full bg-[#06C755] px-4 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90">
+                <span> แอด LINE</span>
+              </a>
+              <button id="modal-copy-btn"
+                class="btn-secondary flex items-center justify-center gap-2 px-4 py-3 text-sm shadow-sm">
+                <span> คัดลอกข้อมูล</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm"></div>
+
+  <script src="js/mockData.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

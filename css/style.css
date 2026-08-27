@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Prompt:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
+   60 / 30 / 10 Design Tokens — Ubon Local Hub
+   60% Space (Warm Canvas) | 30% Surface (Sage/White) | 10% Attention (Emerald/Amber)
+   ========================================================================== */
+:root {
+  color-scheme: light;
+
+  /* 60% — Space / Canvas */
+  --bg-warm: #F8F6F0;
+  --bg-warm-canvas: #FFFCF7;
+
+  /* 30% — Surface / Supporting Area */
+  --surface-white: #FFFFFF;
+  --surface-sage: #E7F1EA;
+  --surface-sage-light: #F2F7F4;
+  --surface-sage-muted: #DCECE3;
+
+  /* 10% — Attention / Accent */
+  --green-primary: #008F6A;
+  --green-deep: #087A5B;
+  --green-dark: #065B43;
+  --amber-accent: #E9A12A;
+  --amber-deep: #C97912;
+
+  /* Semantic Typography */
+  --text-primary: #172B26;
+  --text-secondary: #68756F;
+  --text-muted: #8C9993;
+
+  /* Semantic Borders & Dividers */
+  --border: #D9E2DD;
+  --border-light: #EBF0EC;
+
+  /* Semantic Danger */
+  --danger-primary: #DC2626;
+  --danger-surface: #FEF2F2;
+  --danger-border: #FEE2E2;
+
+  /* Radius Hierarchy */
+  --radius-btn: 9999px;
+  --radius-chip: 9999px;
+  --radius-card: 16px;
+  --radius-modal: 20px;
+  --radius-input: 10px;
+  --radius-table: 14px;
+  --radius-image: 14px;
+}
+
+/* Selection Color */
+::selection {
+  background-color: #DCECE3;
+  color: #087A5B;
+}
+
+/* Standard & Webkit Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg-warm);
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B4C4BC;
+}
+
+/* Base Body: 60% Warm Canvas (No gradients, no AI slop) */
+body {
+  font-family: 'Prompt', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-warm);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Numbers & English Typography */
+.font-numeric {
+  font-family: 'Inter', sans-serif;
+  font-feature-settings: 'tnum', 'lnum';
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* --------------------------------------------------------------------------
+   UI Surfaces & Component Tokens
+   -------------------------------------------------------------------------- */
+
+/* 60% Canvas Wrapper */
+.bg-canvas {
+  background-color: var(--bg-warm);
+}
+
+/* 30% Sage Surface (Search & Filter Section, Headers, Highlights) */
+.bg-surface-sage {
+  background-color: var(--surface-sage);
+}
+
+.border-subtle {
+  border-color: var(--border);
+}
+
+/* 30% White Card Surface on Warm/Sage Canvas */
+.card-product {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-product:hover {
+  transform: translateY(-3px);
+  border-color: #B4CDC2;
+  box-shadow: 0 10px 24px -6px rgba(23, 43, 38, 0.06);
+}
+
+/* Hero Spotlight Card: Clean White Surface with Subtle Border */
+.hero-spotlight-card {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+
+.hero-spotlight-card:hover {
+  transform: translateY(-3px);
+  border-color: #B4CDC2;
+  box-shadow: 0 12px 28px -6px rgba(23, 43, 38, 0.08);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--green-primary);
+  color: #FFFFFF;
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--green-deep);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: var(--surface-white);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-sage-light);
+  border-color: #C1D2C9;
+}
+
+/* Filter Chips */
+.chip-active {
+  background-color: var(--green-primary) !important;
+  color: #FFFFFF !important;
+  border-color: var(--green-primary) !important;
+}
+
+.chip-inactive {
+  background-color: var(--surface-white) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border) !important;
+}
+
+.chip-inactive:hover {
+  border-color: #B4CDC2 !important;
+  background-color: var(--surface-sage-light) !important;
+}
+
+/* Price & Accent Colors */
+.text-price {
+  color: var(--amber-deep);
+}
+
+.text-rating {
+  color: var(--amber-accent);
+}
+
+.badge-otop {
+  background-color: var(--amber-accent);
+  color: #FFFFFF;
+}
+
+.badge-category {
+  background-color: var(--surface-sage);
+  color: var(--green-deep);
+}
+
+/* Inputs & Form Controls */
+.input-custom {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-input);
+  background-color: var(--surface-white);
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input-custom:focus {
+  outline: none;
+  border-color: var(--green-primary);
+  box-shadow: 0 0 0 3px rgba(0, 143, 106, 0.12);
+}
+
+/* Smooth Focus Ring */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--green-primary);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Animations & Transitions
+   -------------------------------------------------------------------------- */
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalBackdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-modal-content {
+  animation: modalSlideUp 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-modal-backdrop {
+  animation: modalBackdropFade 0.18s ease-out forwards;
+}
+
+/* Toast Notifications */
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%) scale(0.95);
+  }
+}
+
+.toast-enter {
+  animation: toastSlideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-exit {
+  animation: toastSlideOut 0.2s ease-in forwards;
+}
+
+/* Line Clamp */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}

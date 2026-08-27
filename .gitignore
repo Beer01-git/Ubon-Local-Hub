@@ -1,0 +1,18 @@
+# IDE, Editor & Agent Configs
+.vscode/
+.cursor/
+.impeccable/
+.idea/
+.agents/
+
+# Design Specs, Prompts & Planning Documents
+60-30-10-ubon-local-hub.md
+DESIGN.md
+PRODUCT.md
+design/
+
+# OS & Temporary Files
+.DS_Store
+Thumbs.db
+*.log
+

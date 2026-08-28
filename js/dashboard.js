@@ -27,6 +27,12 @@ const deleteModalText = document.getElementById('delete-modal-text');
 const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
 const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
 
+// About Website Modal Elements
+const aboutModal = document.getElementById('about-website-modal');
+const aboutWebsiteBtn = document.getElementById('about-website-btn');
+const closeAboutModalBtn = document.getElementById('close-about-modal');
+const closeAboutModalFooterBtn = document.getElementById('close-about-modal-btn');
+
 // Stats Elements
 const statTotalItems = document.getElementById('stat-total-items');
 const statTotalValue = document.getElementById('stat-total-value');
@@ -304,6 +310,33 @@ imageUrlInput?.addEventListener('input', (e) => {
   updateImagePreview(e.target.value);
 });
 
+function openAboutModal() {
+  if (!aboutModal) return;
+  aboutModal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAboutModal() {
+  if (!aboutModal) return;
+  aboutModal.classList.add('hidden');
+  if (modal?.classList.contains('hidden') && deleteModal?.classList.contains('hidden')) {
+    document.body.style.overflow = '';
+  }
+}
+
+// About modal listeners
+document.querySelectorAll('.open-about-trigger').forEach((el) => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    openAboutModal();
+  });
+});
+closeAboutModalBtn?.addEventListener('click', closeAboutModal);
+closeAboutModalFooterBtn?.addEventListener('click', closeAboutModal);
+aboutModal?.addEventListener('click', (e) => {
+  if (e.target === aboutModal) closeAboutModal();
+});
+
 // Delete modal listeners
 cancelDeleteBtn?.addEventListener('click', closeDeleteModal);
 confirmDeleteBtn?.addEventListener('click', handleDeleteConfirm);
@@ -324,6 +357,7 @@ resetDashboardDataBtn?.addEventListener('click', () => {
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
+    if (!aboutModal?.classList.contains('hidden')) closeAboutModal();
     if (!modal?.classList.contains('hidden')) closeModal();
     if (!deleteModal?.classList.contains('hidden')) closeDeleteModal();
   }

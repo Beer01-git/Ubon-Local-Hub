@@ -60,20 +60,26 @@
   <!-- Navigation Header: 30% White Surface on Warm Canvas -->
   <header class="sticky top-0 z-40 border-b border-subtle bg-white/95 backdrop-blur-sm">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3.5 sm:px-6 lg:px-8">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div
-          class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#087A5B] text-lg font-bold text-white shadow-sm transition-transform group-hover:scale-105">
+      <div class="flex items-center gap-3">
+        <button id="about-website-btn" type="button" title="คลิกเพื่อดูรายละเอียดและข้อมูลเกี่ยวกับเว็บไซต์"
+          class="open-about-trigger relative flex h-10 w-10 items-center justify-center rounded-xl bg-[#087A5B] text-lg font-bold text-white shadow-sm transition-transform hover:scale-105 hover:bg-[#065B43] cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-deep/40">
           U
-        </div>
-        <div>
+          <span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[9px] font-bold text-white shadow-xs" title="คลิกดูรายละเอียดเว็บ">ℹ</span>
+        </button>
+        <a href="index.html" class="group">
           <div class="flex items-center gap-2">
-            <span class="text-lg font-bold text-primaryText">Ubon Local Hub</span>
+            <span class="text-lg font-bold text-primaryText group-hover:text-emerald-deep transition-colors">Ubon Local Hub</span>
             <span class="rounded-full bg-sage px-2 py-0.5 text-xs font-semibold text-emerald-deep">OTOP</span>
           </div>
           <p class="text-xs text-secondaryText">ศูนย์รวมของดีและสินค้าชุมชนเมืองอุบลฯ</p>
-        </div>
-      </a>
+        </a>
+      </div>
       <div class="flex items-center gap-2.5">
+        <button type="button"
+          class="open-about-trigger inline-flex items-center gap-1.5 rounded-full border border-subtle bg-white px-3.5 py-1.5 text-xs font-semibold text-primaryText transition hover:bg-sage-light hover:text-emerald-deep hover:border-emerald-deep/40 shadow-xs cursor-pointer">
+          <span class="text-emerald-deep font-bold">ℹ</span>
+          <span>เกี่ยวกับเว็บ</span>
+        </button>
         <button id="reset-data-btn" title="รีเซ็ตเป็นข้อมูลตัวอย่างเริ่มต้น"
           class="hidden rounded-full border border-subtle bg-white px-3 py-1.5 text-xs font-medium text-secondaryText transition hover:bg-sage-light hover:text-primaryText sm:inline-flex">
           ↺ รีเซ็ตข้อมูลตัวอย่าง
@@ -94,7 +100,6 @@
           <div>
             <div
               class="mb-3.5 inline-flex items-center gap-2 rounded-full border border-subtle bg-sage px-3.5 py-1 text-xs font-semibold text-emerald-deep">
-              <span></span>
               <span>หัตถศิลป์และของดีเมืองอุบลราชธานี</span>
             </div>
             <h1 class="text-3xl font-bold tracking-tight text-primaryText sm:text-4xl lg:text-5xl leading-tight">
@@ -135,7 +140,7 @@
                 FEATURED HERITAGE
               </span>
               <h2 class="mt-1.5 text-xl font-bold text-primaryText leading-snug">
-                ดินแดนแห่งผ้าทอ &amp; รสชาติแม่น้ำมูล
+                หัตถศิลป์ทรงคุณค่า &amp; ของฝากอุบลเลื่องชื่อ
               </h2>
               <p class="mt-2 text-sm leading-relaxed text-secondaryText">
                 ตั้งแต่ลายผ้าโบราณ อ.โขงเจียม หมูยอเมืองอุบลฯ ไปจนถึงซาลาเปาพิบูล และเครื่องจักสานสว่างวีระวงศ์
@@ -289,6 +294,189 @@
               </button>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Website Modal: Details from readme.md -->
+  <div id="about-website-modal"
+    class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/60 p-4 backdrop-blur-sm animate-modal-backdrop"
+    role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
+    <div class="mx-auto flex min-h-full max-w-3xl items-center justify-center py-6">
+      <div class="w-full overflow-hidden rounded-[20px] border border-subtle bg-white shadow-2xl animate-modal-content">
+        <!-- Modal Header -->
+        <div class="border-b border-subtle bg-surface-sage px-6 py-5 sm:px-8 flex items-center justify-between">
+          <div class="flex items-center gap-3.5">
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#087A5B] text-xl font-bold text-white shadow-sm">
+              U
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h2 id="about-modal-title" class="text-xl font-bold text-primaryText sm:text-2xl">
+                  Ubon Local Hub
+                </h2>
+                <span class="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-emerald-deep border border-subtle">
+                  Prototype
+                </span>
+              </div>
+              <p class="text-xs text-secondaryText sm:text-sm">
+                ศูนย์รวมของดีและสินค้า OTOP เมืองอุบลราชธานี
+              </p>
+            </div>
+          </div>
+          <button id="close-about-modal"
+            class="flex h-9 w-9 items-center justify-center rounded-full bg-white/80 text-secondaryText border border-subtle transition hover:bg-white hover:text-primaryText"
+            aria-label="ปิดหน้าต่าง">
+            ✕
+          </button>
+        </div>
+
+        <!-- Modal Body Content -->
+        <div class="max-h-[75vh] overflow-y-auto p-6 sm:p-8 space-y-6">
+          <!-- Overview Badge Card -->
+          <div class="rounded-2xl border border-subtle bg-canvas p-4 sm:p-5">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-deep">
+              WEB APPLICATION PROTOTYPE (INTERACTIVE FRONTEND)
+            </span>
+            <p class="mt-1.5 text-sm leading-relaxed text-primaryText">
+              โปรเจกต์พัฒนาเว็บแอปพลิเคชันเพื่อโปรโมตสินค้าชุมชนและ OTOP ของจังหวัดอุบลราชธานี ออกแบบในสไตล์ Minimalist เน้นใช้งานง่าย และจำลองการจัดการข้อมูลแบบกึ่ง Dynamic จัดทำขึ้นเพื่อการเรียนรู้และพัฒนาทักษะในการพัฒนาเว็บไซต์
+            </p>
+          </div>
+
+          <!-- Section 1: Concept -->
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <span class="flex h-6 w-6 items-center justify-center rounded-full bg-surface-sage text-emerald-deep text-xs font-bold font-numeric">1</span>
+              <h3 class="text-base font-bold text-primaryText">แนวคิดของโปรเจกต์</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-secondaryText mb-3">
+              สินค้า OTOP และของดีประจำอำเภอต่างๆ ในจังหวัดอุบลราชธานี มีความหลากหลายแต่ยังขาดศูนย์กลางในการเข้าถึงข้อมูล <strong>Ubon Local Hub</strong> จึงถูกพัฒนาขึ้นเพื่อ:
+            </p>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <div class="rounded-xl border border-subtle bg-white p-4">
+                <p class="text-xs font-bold text-emerald-deep">สำหรับผู้ใช้ทั่วไป / นักท่องเที่ยว</p>
+                <p class="mt-1 text-xs text-secondaryText leading-relaxed">
+                  ค้นหา กรอง และดูรายละเอียดสินค้า OTOP แยกตามอำเภอและหมวดหมู่ได้อย่างสะดวก เชื่อมต่อกับช่างฝีมือและผู้ผลิตโดยตรง
+                </p>
+              </div>
+              <div class="rounded-xl border border-subtle bg-white p-4">
+                <p class="text-xs font-bold text-emerald-deep">สำหรับร้านค้าชุมชน (จำลองระบบ)</p>
+                <p class="mt-1 text-xs text-secondaryText leading-relaxed">
+                  มีหน้า Merchant Dashboard สำหรับจัดการคลังสินค้า (เพิ่ม / แก้ไข / ลบ) พร้อมสถิติสรุปแบบ Real-time
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 2: Key Features -->
+          <div class="border-t border-subtle pt-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="flex h-6 w-6 items-center justify-center rounded-full bg-surface-sage text-emerald-deep text-xs font-bold font-numeric">2</span>
+              <h3 class="text-base font-bold text-primaryText">ฟีเจอร์หลักในระบบ</h3>
+            </div>
+
+            <div class="space-y-4">
+              <!-- Feature: Home Page -->
+              <div class="rounded-xl border border-subtle bg-surface-sage/50 p-4">
+                <h4 class="text-sm font-bold text-primaryText flex items-center gap-2">
+                  <span>หน้าหลัก (index.html)</span>
+                </h4>
+                <ul class="mt-2.5 space-y-1.5 text-xs text-secondaryText leading-relaxed list-disc list-inside">
+                  <li><strong>ช่องค้นหาสินค้า:</strong> พิมพ์ค้นหาชื่อสินค้า ชื่อร้าน หรืออำเภอแบบ Real-time</li>
+                  <li><strong>ระบบ Filter สองชั้น:</strong> กรองตามอำเภอ (5 อำเภอ) และหมวดหมู่สินค้า (6 หมวด) พร้อมกัน</li>
+                  <li><strong>แถบ Filter Tag:</strong> แสดง Tag ตัวกรองที่กำลังใช้งาน พร้อมปุ่มรีเซ็ตทั้งหมด</li>
+                  <li><strong>Product Grid:</strong> แสดงการ์ดสินค้าพร้อมรูปภาพ, ราคา, OTOP Badge, ชื่อร้าน และอำเภอ</li>
+                  <li><strong>Product Detail Modal:</strong> คลิกดูรายละเอียดเต็ม พร้อมข้อมูลติดต่อ (โทรศัพท์, LINE, ที่อยู่) และปุ่มคัดลอก</li>
+                  <li><strong>ปุ่มรีเซ็ตข้อมูลตัวอย่าง:</strong> รีเซ็ตข้อมูลสินค้ากลับเป็นค่าเริ่มต้นได้อย่างรวดเร็ว</li>
+                </ul>
+              </div>
+
+              <!-- Feature: Dashboard -->
+              <div class="rounded-xl border border-subtle bg-surface-sage/50 p-4">
+                <h4 class="text-sm font-bold text-primaryText flex items-center gap-2">
+                  <span>หน้าจัดการร้านค้า (dashboard.html)</span>
+                </h4>
+                <ul class="mt-2.5 space-y-1.5 text-xs text-secondaryText leading-relaxed list-disc list-inside">
+                  <li><strong>สถิติสรุป:</strong> แสดงจำนวนสินค้า, มูลค่ารวมในระบบ และจำนวนอำเภอที่ครอบคลุม</li>
+                  <li><strong>เพิ่มสินค้าใหม่:</strong> ฟอร์มกรอกข้อมูลสินค้าครบถ้วน พร้อมระบบพรีวิวรูปภาพก่อนบันทึก</li>
+                  <li><strong>แก้ไขสินค้า:</strong> จัดการแก้ไขข้อมูลสินค้าผ่าน Modal Form</li>
+                  <li><strong>ลบสินค้า:</strong> ระบบยืนยันผ่าน Confirmation Modal ป้องกันการกดลบพลาด</li>
+                  <li><strong>บันทึกใน localStorage:</strong> ข้อมูลที่จัดการจะถูกบันทึกไว้ในเบราว์เซอร์อัตโนมัติ</li>
+                </ul>
+              </div>
+
+              <!-- Feature: Design System -->
+              <div class="rounded-xl border border-subtle bg-surface-sage/50 p-4">
+                <h4 class="text-sm font-bold text-primaryText flex items-center gap-2">
+                  <span>ระบบ Design System (60 / 30 / 10)</span>
+                </h4>
+                <div class="mt-2.5 grid gap-2 sm:grid-cols-3 text-xs text-secondaryText">
+                  <div class="rounded-lg bg-white p-2.5 border border-subtle">
+                    <span class="font-bold text-primaryText">60% Space</span>
+                    <p class="mt-0.5 text-[11px]">Warm Canvas โทนอบอุ่น สบายตา</p>
+                  </div>
+                  <div class="rounded-lg bg-white p-2.5 border border-subtle">
+                    <span class="font-bold text-primaryText">30% Surface</span>
+                    <p class="mt-0.5 text-[11px]">Sage &amp; Pure White สไตล์ Minimalist</p>
+                  </div>
+                  <div class="rounded-lg bg-white p-2.5 border border-subtle">
+                    <span class="font-bold text-primaryText">10% Accent</span>
+                    <p class="mt-0.5 text-[11px]">Emerald Green &amp; Amber สำหรับจุดเน้น</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 3: Sample Data -->
+          <div class="border-t border-subtle pt-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="flex h-6 w-6 items-center justify-center rounded-full bg-surface-sage text-emerald-deep text-xs font-bold font-numeric">3</span>
+              <h3 class="text-base font-bold text-primaryText">ข้อมูลตัวอย่างในระบบ</h3>
+            </div>
+            <div class="grid gap-3 sm:grid-cols-2 text-xs">
+              <div class="rounded-xl border border-subtle bg-white p-4">
+                <p class="font-bold text-primaryText mb-1.5">5 อำเภอเอกลักษณ์</p>
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="rounded-full bg-surface-sage px-2.5 py-0.5 text-[11px] font-semibold text-emerald-deep">เมืองอุบลฯ</span>
+                  <span class="rounded-full bg-surface-sage px-2.5 py-0.5 text-[11px] font-semibold text-emerald-deep">โขงเจียม</span>
+                  <span class="rounded-full bg-surface-sage px-2.5 py-0.5 text-[11px] font-semibold text-emerald-deep">วารินชำราบ</span>
+                  <span class="rounded-full bg-surface-sage px-2.5 py-0.5 text-[11px] font-semibold text-emerald-deep">พิบูลมังสาหาร</span>
+                  <span class="rounded-full bg-surface-sage px-2.5 py-0.5 text-[11px] font-semibold text-emerald-deep">สว่างวีระวงศ์</span>
+                </div>
+              </div>
+              <div class="rounded-xl border border-subtle bg-white p-4">
+                <p class="font-bold text-primaryText mb-1.5">6 หมวดหมู่สินค้า OTOP</p>
+                <p class="text-secondaryText leading-relaxed text-[11px]">
+                  ผ้าทอ/เครื่องแต่งกาย · อาหาร/ของกินพื้นถิ่น · งานจักสาน/หัตถกรรม · สมุนไพร/สุขภาพ · เครื่องประดับ/ของที่ระลึก · ของฝากทั่วไป
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 4: Notes -->
+          <div class="border-t border-subtle pt-5">
+            <div class="rounded-xl border border-amber-200 bg-amber-50/60 p-4">
+              <p class="text-xs font-bold text-amber-deep flex items-center gap-1.5">
+                <span>หมายเหตุสำคัญ</span>
+              </p>
+              <ul class="mt-2 space-y-1 text-xs text-primaryText/80 leading-relaxed list-disc list-inside">
+                <li>โปรเจกต์นี้เป็น <strong>Frontend Prototype</strong> จัดทำขึ้นเพื่อการเรียนรู้และพัฒนาทักษะการสร้างเว็บแอปพลิเคชัน</li>
+                <li>ข้อมูลสินค้าจัดเก็บใน <strong>localStorage</strong> ของเบราว์เซอร์ หากล้างประวัติการท่องเว็บ ข้อมูลที่เพิ่มใหม่จะรีเซ็ต</li>
+                <li>ข้อมูลร้านค้า เบอร์โทรศัพท์ และช่องทางติดต่อเป็น <strong>ข้อมูลจำลองเพื่อการทดสอบ</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="border-t border-subtle bg-white px-6 py-4 sm:px-8 flex items-center justify-between">
+          <p class="text-xs text-secondaryText">Ubon Local Hub © 2026</p>
+          <button id="close-about-modal-btn" type="button"
+            class="btn-primary px-6 py-2.5 text-xs shadow-sm">
+            ปิดหน้าต่าง
+          </button>
         </div>
       </div>
     </div>

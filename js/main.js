@@ -35,6 +35,12 @@ const modalPhoneBtn = document.getElementById('modal-phone-btn');
 const modalLineBtn = document.getElementById('modal-line-btn');
 const modalCopyBtn = document.getElementById('modal-copy-btn');
 
+// About Website Modal Elements
+const aboutModal = document.getElementById('about-website-modal');
+const aboutWebsiteBtn = document.getElementById('about-website-btn');
+const closeAboutModalBtn = document.getElementById('close-about-modal');
+const closeAboutModalFooterBtn = document.getElementById('close-about-modal-btn');
+
 function showToast(message, type = 'success') {
   if (!toastContainer) return;
 
@@ -332,7 +338,35 @@ function render() {
   renderProducts();
 }
 
+function openAboutModal() {
+  if (!aboutModal) return;
+  aboutModal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAboutModal() {
+  if (!aboutModal) return;
+  aboutModal.classList.add('hidden');
+  if (detailModal?.classList.contains('hidden')) {
+    document.body.style.overflow = '';
+  }
+}
+
 // Event Listeners
+document.querySelectorAll('.open-about-trigger').forEach((el) => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    openAboutModal();
+  });
+});
+closeAboutModalBtn?.addEventListener('click', closeAboutModal);
+closeAboutModalFooterBtn?.addEventListener('click', closeAboutModal);
+aboutModal?.addEventListener('click', (e) => {
+  if (e.target === aboutModal) {
+    closeAboutModal();
+  }
+});
+
 categoryFiltersContainer?.addEventListener('click', (e) => {
   const btn = e.target.closest('[data-category]');
   if (!btn) return;
@@ -391,8 +425,12 @@ detailModal?.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !detailModal?.classList.contains('hidden')) {
-    closeDetailModal();
+  if (e.key === 'Escape') {
+    if (!aboutModal?.classList.contains('hidden')) {
+      closeAboutModal();
+    } else if (!detailModal?.classList.contains('hidden')) {
+      closeDetailModal();
+    }
   }
 });
 
@@ -401,3 +439,4 @@ document.addEventListener('DOMContentLoaded', () => {
   loadProducts();
   render();
 });
+

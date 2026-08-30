@@ -4,6 +4,7 @@
 .impeccable/
 .idea/
 .agents/
+.gitgnore
 
 # Design Specs, Prompts & Planning Documents
 60-30-10-ubon-local-hub.md
